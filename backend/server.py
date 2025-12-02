@@ -439,11 +439,12 @@ async def register(user_create: UserCreate):
     
     user_dict = user_create.model_dump()
     password = user_dict.pop('password')
-    user_dict['password_hash'] = hash_password(password)
+    hashed_pwd = hash_password(password)
     user = User(**user_dict)
     
     doc = user.model_dump()
     doc['created_at'] = doc['created_at'].isoformat()
+    doc['password_hash'] = hashed_pwd  # Add password_hash to the document
     await db.users.insert_one(doc)
     return user
 
