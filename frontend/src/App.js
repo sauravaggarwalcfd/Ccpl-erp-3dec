@@ -132,6 +132,20 @@ function App() {
               <Route path="settings/account-mapping" element={<AccountMapping />} />
             </Route>
 
+            {/* Inventory Module Routes (Standalone) */}
+            <Route
+              path="/inventory/*"
+              element={
+                <PrivateRoute>
+                  {inventoryRoutes.element}
+                </PrivateRoute>
+              }
+            >
+              {inventoryRoutes.children.map((route, index) => (
+                <Route key={index} path={route.path} element={route.element} />
+              ))}
+            </Route>
+
             {/* 404 */}
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
