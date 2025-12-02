@@ -54,7 +54,11 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       key: 'masters',
       items: [
         { title: 'Item Category', path: '/masters/item-categories' },
+        { title: 'Fabric Category', path: '/masters/fabric-categories' },
         { title: 'Item Master', path: '/masters/items' },
+        { title: 'Color Master', path: '/masters/colors' },
+        { title: 'Size Master', path: '/masters/sizes' },
+        { title: 'Brand Master', path: '/masters/brands' },
         { title: 'UOM Master', path: '/masters/uoms' },
         { title: 'Supplier Master', path: '/masters/suppliers' },
         { title: 'Warehouse Master', path: '/masters/warehouses' },
