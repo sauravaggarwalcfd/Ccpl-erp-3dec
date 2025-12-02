@@ -1,0 +1,456 @@
+{
+  "project_name": "ERP Inventory Management System",
+  "design_context": "dashboard",
+  "theme": "light",
+  "design_philosophy": {
+    "primary_approach": "Professional ERP interface with clean industrial layout",
+    "key_principles": [
+      "Data density with clarity - maximize information without overwhelming",
+      "Functional beauty - every element serves a purpose",
+      "Scanability - users should find information in under 3 seconds",
+      "Consistency - predictable patterns across all modules",
+      "Efficiency - minimize clicks and cognitive load for daily tasks"
+    ],
+    "emotional_tone": "Professional, trustworthy, efficient, precise",
+    "target_users": "Manufacturing professionals (Store managers, Purchase officers, QC inspectors, Accounts team)",
+    "usage_context": "Desktop-first, extended daily use, production environment"
+  },
+  "typography": {
+    "philosophy": "Clear hierarchy with industrial precision. Avoid decorative fonts - prioritize legibility for data-heavy interfaces.",
+    "font_families": {
+      "headings": {
+        "primary": "IBM Plex Sans",
+        "weights": ["500", "600", "700"],
+        "usage": "Page titles, section headers, module names",
+        "rationale": "Professional, technical feel with excellent readability. Designed for IBM's enterprise software."
+      },
+      "body": {
+        "primary": "Work Sans",
+        "weights": ["400", "500", "600"],
+        "usage": "Form labels, table content, body text, descriptions",
+        "rationale": "Optimized for screen reading with clear distinction between similar characters (critical for SKUs, codes)"
+      },
+      "data": {
+        "primary": "IBM Plex Mono",
+        "weights": ["400", "500"],
+        "usage": "Item codes, SKUs, numbers, IDs, technical identifiers",
+        "rationale": "Monospace ensures alignment and easy scanning of alphanumeric codes"
+      }
+    },
+    "scale": {
+      "page_title": "text-3xl font-semibold tracking-tight",
+      "section_header": "text-2xl font-semibold tracking-tight",
+      "card_title": "text-xl font-semibold",
+      "subsection": "text-lg font-medium",
+      "body": "text-base font-normal",
+      "label": "text-sm font-medium",
+      "caption": "text-xs font-normal",
+      "overline": "text-xs font-medium uppercase tracking-wider"
+    },
+    "line_height": {
+      "headings": "leading-tight",
+      "body": "leading-normal",
+      "data_tables": "leading-relaxed"
+    },
+    "installation_commands": [
+      "Add to tailwind.config.js fontFamily:",
+      "fontFamily: { sans: ['Work Sans', 'system-ui', 'sans-serif'], heading: ['IBM Plex Sans', 'system-ui', 'sans-serif'], mono: ['IBM Plex Mono', 'monospace'] }",
+      "Import in index.css: @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');"
+    ]
+  },
+  "color_system": {
+    "archetype": "SWISS & HIGH-CONTRAST (Authority, Clarity, Truth)",
+    "rationale": "ERP systems demand precision and clarity. High contrast ensures readability during extended use. Minimal color usage keeps focus on data.",
+    "palette": {
+      "base": {
+        "background": "hsl(210, 20%, 98%)",
+        "background_secondary": "hsl(210, 20%, 96%)",
+        "foreground": "hsl(215, 25%, 15%)",
+        "description": "Slightly cool-tinted whites and greys for reduced eye strain"
+      },
+      "primary": {
+        "DEFAULT": "hsl(215, 85%, 45%)",
+        "hover": "hsl(215, 85%, 38%)",
+        "active": "hsl(215, 85%, 32%)",
+        "foreground": "hsl(0, 0%, 100%)",
+        "description": "Deep professional blue - used ONLY for primary CTAs and active states"
+      },
+      "secondary": {
+        "DEFAULT": "hsl(210, 15%, 92%)",
+        "hover": "hsl(210, 15%, 88%)",
+        "foreground": "hsl(215, 25%, 20%)",
+        "description": "Subtle grey for secondary actions"
+      },
+      "accent": {
+        "success": "hsl(145, 65%, 42%)",
+        "warning": "hsl(38, 92%, 50%)",
+        "danger": "hsl(0, 72%, 51%)",
+        "info": "hsl(200, 85%, 48%)",
+        "description": "Functional colors - used only to convey status or action type"
+      },
+      "neutral": {
+        "50": "hsl(210, 20%, 98%)",
+        "100": "hsl(210, 20%, 95%)",
+        "200": "hsl(210, 18%, 90%)",
+        "300": "hsl(210, 16%, 82%)",
+        "400": "hsl(210, 14%, 66%)",
+        "500": "hsl(210, 12%, 50%)",
+        "600": "hsl(210, 14%, 38%)",
+        "700": "hsl(210, 18%, 28%)",
+        "800": "hsl(215, 22%, 18%)",
+        "900": "hsl(215, 25%, 12%)"
+      },
+      "borders": {
+        "default": "hsl(210, 18%, 87%)",
+        "strong": "hsl(210, 18%, 75%)",
+        "subtle": "hsl(210, 18%, 93%)",
+        "description": "1px borders throughout - creates grid-like structure"
+      },
+      "status_colors": {
+        "pending": "hsl(38, 92%, 50%)",
+        "approved": "hsl(145, 65%, 42%)",
+        "rejected": "hsl(0, 72%, 51%)",
+        "draft": "hsl(210, 14%, 66%)",
+        "in_progress": "hsl(200, 85%, 48%)",
+        "completed": "hsl(145, 65%, 42%)",
+        "low_stock": "hsl(0, 72%, 51%)",
+        "adequate_stock": "hsl(145, 65%, 42%)"
+      }
+    },
+    "usage_rules": {
+      "primary_color_usage": "LIMIT primary color to CTAs (buttons, links) and active navigation items only. Do NOT use for backgrounds or large surfaces.",
+      "status_indicators": "Always pair status colors with icons or text labels for accessibility",
+      "data_visualization": "Use chart colors from Shadcn chart palette - already optimized for accessibility",
+      "hover_states": "ALWAYS explicitly set both background AND text color on hover to maintain contrast",
+      "focus_states": "Use ring utilities with primary color: focus:ring-2 focus:ring-primary focus:ring-offset-2"
+    },
+    "contrast_requirements": {
+      "body_text": "Minimum 7:1 contrast ratio (WCAG AAA)",
+      "labels": "Minimum 4.5:1 contrast ratio",
+      "interactive_elements": "Minimum 3:1 against adjacent colors",
+      "status_badges": "Use colored backgrounds with dark text for better contrast than colored text"
+    }
+  },
+  "layout_system": {
+    "structure": "Sidebar navigation + Top header + Main content area",
+    "sidebar": {
+      "width": "w-64 (256px)",
+      "background": "bg-neutral-50 border-r border-neutral-200",
+      "collapsed_width": "w-16 (64px)",
+      "behavior": "Fixed position, collapsible on mobile",
+      "content": "Logo, navigation menu, user profile, collapse toggle"
+    },
+    "header": {
+      "height": "h-16 (64px)",
+      "background": "bg-white border-b border-neutral-200",
+      "content": "Breadcrumbs, page title, global search, notifications, user menu",
+      "position": "Sticky top-0"
+    },
+    "main_content": {
+      "padding": "p-6 md:p-8",
+      "max_width": "Full width with internal constraints per section",
+      "background": "bg-neutral-50"
+    },
+    "spacing_system": {
+      "philosophy": "Generous spacing for breathing room, but denser than marketing pages",
+      "section_spacing": "mb-8 (between major sections)",
+      "card_spacing": "p-6 (internal card padding)",
+      "form_field_spacing": "mb-4 (between form fields)",
+      "table_cell_padding": "px-4 py-3",
+      "button_padding": "px-4 py-2 (default), px-6 py-3 (large)"
+    },
+    "grid_patterns": {
+      "dashboard_widgets": {
+        "type": "Control Room Grid (Dense, Data Correlation)",
+        "base_grid": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+        "widget_sizes": {
+          "summary_card": "col-span-1",
+          "chart": "col-span-2 md:col-span-3",
+          "activity_feed": "col-span-1 row-span-2"
+        }
+      },
+      "form_layouts": {
+        "type": "Two-column responsive",
+        "base_grid": "grid grid-cols-1 md:grid-cols-2 gap-6",
+        "full_width_fields": "col-span-full (for textareas, tables)"
+      },
+      "master_lists": {
+        "type": "Single column with data table",
+        "pattern": "Header with actions → Filters → Data table → Pagination"
+      }
+    }
+  },
+  "component_strategy": {
+    "philosophy": "Use Shadcn components for ALL interactive elements. Customize styling but keep accessibility intact.",
+    "core_components": {
+      "forms": {
+        "components": ["Input", "Select", "Textarea", "Checkbox", "Radio Group", "Calendar", "Form"],
+        "customization": "Override default styling with Tailwind classes. Ensure labels are always visible.",
+        "validation": "Use inline validation with error messages below fields"
+      },
+      "data_display": {
+        "components": ["Table", "Badge", "Card", "Separator", "Tabs"],
+        "table_features": [
+          "Fixed header with sticky positioning",
+          "Sortable columns with visual indicators",
+          "Row hover states",
+          "Zebra striping for long tables",
+          "Action column (right-aligned) with dropdown menu",
+          "Pagination at bottom"
+        ],
+        "card_usage": "Minimal - prefer flat sections with borders. Use cards only for dashboard widgets."
+      },
+      "navigation": {
+        "components": ["Breadcrumb", "Tabs", "Dropdown Menu"],
+        "patterns": "Breadcrumbs for hierarchy, Tabs for related views, Dropdown for actions"
+      },
+      "feedback": {
+        "components": ["Sonner (Toast)", "Alert", "Dialog", "Alert Dialog"],
+        "toast_usage": "Success/error feedback for actions",
+        "dialog_usage": "Confirmations, complex forms, detail views"
+      },
+      "overlays": {
+        "components": ["Dialog", "Sheet", "Popover", "Tooltip"],
+        "sheet_usage": "Side panel for filters or detail views",
+        "popover_usage": "Contextual help, quick actions"
+      }
+    },
+    "custom_components_needed": [
+      "StatusBadge - Reusable status indicator with color coding",
+      "DataCard - Dashboard metric card with icon, value, change indicator",
+      "ApprovalTimeline - Visual timeline for approval workflows",
+      "StockLevelIndicator - Visual gauge for stock levels",
+      "QuickActionButton - Icon button with tooltip for table actions"
+    ]
+  },
+  "surface_treatments": {
+    "primary_strategy": "Flat with subtle borders - Grid Borders (Technical Look)",
+    "implementation": {
+      "cards": "bg-white border border-neutral-200 rounded-lg",
+      "tables": "bg-white border border-neutral-200 rounded-lg overflow-hidden",
+      "forms": "bg-white border border-neutral-200 rounded-lg p-6",
+      "modals": "bg-white border border-neutral-200 rounded-lg shadow-xl"
+    },
+    "shadows": {
+      "default": "shadow-sm (subtle ambient shadow)",
+      "hover": "shadow-md (slight lift on hover)",
+      "modal": "shadow-xl (strong depth for overlays)",
+      "usage": "Minimal shadow usage - rely on borders for definition"
+    },
+    "borders": {
+      "default": "border border-neutral-200 (1px solid)",
+      "strong": "border-2 border-neutral-300",
+      "subtle": "border border-neutral-100",
+      "philosophy": "Visible grid structure - borders define zones and hierarchy"
+    },
+    "corner_radius": {
+      "default": "rounded-lg (8px)",
+      "small": "rounded-md (6px)",
+      "buttons": "rounded-md (6px)",
+      "inputs": "rounded-md (6px)",
+      "cards": "rounded-lg (8px)",
+      "philosophy": "Subtle roundness - professional without being playful"
+    }
+  },
+  "motion_and_interactions": {
+    "philosophy": "Minimal, purposeful animations. Feedback over decoration.",
+    "hover_states": {
+      "buttons": "transition-colors duration-200 hover:bg-primary-hover hover:text-white",
+      "table_rows": "transition-colors duration-150 hover:bg-neutral-50",
+      "cards": "transition-shadow duration-200 hover:shadow-md",
+      "links": "transition-colors duration-150 hover:text-primary"
+    },
+    "focus_states": {
+      "all_interactive": "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+    },
+    "transitions": {
+      "property_specific": "Use transition-colors, transition-opacity, transition-transform - NEVER transition: all",
+      "duration": "150ms for micro-interactions, 200ms for state changes, 300ms for page transitions"
+    },
+    "loading_states": {
+      "skeleton": "Use Skeleton component for loading tables and forms",
+      "spinner": "Use for button loading states",
+      "progress": "Use Progress component for multi-step processes"
+    },
+    "accessibility": {
+      "reduced_motion": "Respect prefers-reduced-motion media query",
+      "keyboard_navigation": "Ensure all interactive elements are keyboard accessible",
+      "focus_visible": "Clear focus indicators on all interactive elements"
+    }
+  },
+  "icons": {
+    "library": "lucide-react",
+    "rationale": "Already installed, comprehensive set, consistent style",
+    "usage_patterns": {
+      "navigation": "16px icons in sidebar menu",
+      "buttons": "16px icons with text labels",
+      "table_actions": "16px icons in action column",
+      "status_indicators": "14px icons paired with status badges",
+      "page_headers": "20px icons for visual hierarchy"
+    },
+    "color_usage": {
+      "default": "text-neutral-600",
+      "active": "text-primary",
+      "success": "text-green-600",
+      "warning": "text-yellow-600",
+      "danger": "text-red-600"
+    }
+  },
+  "data_visualization": {
+    "library": "Shadcn Chart components (built on Recharts)",
+    "chart_types": {
+      "dashboard": ["Bar Chart", "Line Chart", "Area Chart", "Pie Chart"],
+      "reports": ["Bar Chart", "Line Chart", "Data Table"]
+    },
+    "color_palette": "Use chart-1 through chart-5 from Tailwind config",
+    "accessibility": "Ensure charts have text alternatives and are keyboard navigable"
+  },
+  "page_specific_guidelines": {
+    "login_page": {
+      "layout": "Centered card on neutral background",
+      "elements": ["Logo", "Form (email, password)", "Submit button", "Forgot password link"],
+      "styling": "Clean, minimal, professional"
+    },
+    "dashboard": {
+      "layout": "4-column grid with mixed widget sizes",
+      "sections": [
+        "Summary cards (4 metrics: Total Items, Low Stock Alerts, Pending POs, Pending Approvals)",
+        "Stock level chart (col-span-2)",
+        "Recent activity feed (col-span-1 row-span-2)",
+        "Purchase order status chart (col-span-2)",
+        "Quick actions section"
+      ],
+      "interactions": "Click on metrics to drill down to relevant pages"
+    },
+    "master_forms": {
+      "layout": "Two-column form with full-width sections where needed",
+      "pattern": "Page header → Form → Action buttons (Save, Cancel)",
+      "validation": "Inline validation with error messages",
+      "required_fields": "Mark with asterisk and 'Required' label"
+    },
+    "list_pages": {
+      "layout": "Page header → Filter bar → Data table → Pagination",
+      "table_features": [
+        "Fixed header",
+        "Sortable columns",
+        "Action column with dropdown menu",
+        "Row selection for bulk actions",
+        "Empty state with call-to-action"
+      ],
+      "filters": "Collapsible filter panel or inline filters above table"
+    },
+    "transaction_forms": {
+      "layout": "Multi-step or single-page with sections",
+      "pattern": "Header info → Line items table → Totals → Actions",
+      "line_items": "Editable table with add/remove row functionality",
+      "calculations": "Auto-calculate totals, taxes, etc."
+    },
+    "approval_panel": {
+      "layout": "List view with expandable details",
+      "features": [
+        "Filter by status (Pending, Approved, Rejected)",
+        "Expandable rows showing full details",
+        "Approve/Reject buttons with comment dialog",
+        "Approval timeline visualization"
+      ]
+    },
+    "reports": {
+      "layout": "Filter panel → Report display → Export actions",
+      "display_options": ["Table view", "Chart view", "Summary cards"],
+      "export": "PDF, Excel, CSV options",
+      "filters": "Date range, category, warehouse, etc."
+    }
+  },
+  "responsive_behavior": {
+    "breakpoints": {
+      "mobile": "< 768px",
+      "tablet": "768px - 1024px",
+      "desktop": "> 1024px"
+    },
+    "mobile_adaptations": {
+      "sidebar": "Collapsible drawer overlay",
+      "tables": "Horizontal scroll with frozen first column",
+      "forms": "Single column layout",
+      "dashboard": "Single column stacked widgets"
+    },
+    "priority": "Desktop-first design, but ensure mobile usability for approvals and quick checks"
+  },
+  "testing_attributes": {
+    "philosophy": "All interactive and key informational elements MUST include data-testid attributes",
+    "naming_convention": "kebab-case, role-based (e.g., login-submit-button, item-master-form)",
+    "required_elements": [
+      "All buttons",
+      "All form inputs",
+      "All navigation links",
+      "All table action buttons",
+      "All status indicators",
+      "All error messages",
+      "All success messages"
+    ]
+  },
+  "accessibility_requirements": {
+    "wcag_level": "AA minimum, AAA for text contrast",
+    "keyboard_navigation": "All functionality accessible via keyboard",
+    "screen_readers": "Proper ARIA labels and semantic HTML",
+    "focus_management": "Clear focus indicators and logical tab order",
+    "color_independence": "Never rely on color alone to convey information"
+  },
+  "performance_considerations": {
+    "table_virtualization": "Use virtual scrolling for tables with 100+ rows",
+    "lazy_loading": "Lazy load charts and heavy components",
+    "debouncing": "Debounce search and filter inputs",
+    "caching": "Cache master data and frequently accessed lists"
+  },
+  "universal_guidelines_for_main_agent": {
+    "design_quality": [
+      "Avoid generic centered layouts and uniform styling",
+      "Create depth through layered design with z-index hierarchy",
+      "Use subtle shadows and borders for definition",
+      "NEVER use universal transitions (transition: all) - use specific properties",
+      "NEVER center-align the app container - disrupts natural reading flow"
+    ],
+    "color_usage": [
+      "NEVER use AI assistant emojis for icons",
+      "Use modern button styles with interaction animations",
+      "Ensure hover states have explicit text and background colors",
+      "Dark colors look good independently - avoid dark gradients"
+    ],
+    "component_reuse": [
+      "Prioritize pre-existing Shadcn components",
+      "Create new components matching existing patterns",
+      "Components use named exports, Pages use default exports"
+    ],
+    "feedback_mechanisms": [
+      "Use Sonner for toast notifications",
+      "Provide immediate feedback for all user actions",
+      "Show loading states for async operations"
+    ],
+    "spacing_and_layout": [
+      "Use 2-3x more spacing than feels comfortable initially",
+      "Containers with borders MUST have internal padding",
+      "Grid items must be direct children of grid containers",
+      "Use align-items: start on grids, add align-self: stretch to individual items as needed"
+    ]
+  },
+  "implementation_notes": {
+    "file_structure": "Organize by feature modules (Dashboard, Masters, Purchase, Quality, Inventory, Reports, Settings)",
+    "component_location": "Shared components in /components, feature-specific in /features/[module]/components",
+    "routing": "Use React Router with nested routes for module sections",
+    "state_management": "Context API for global state, local state for component-specific data",
+    "api_integration": "Centralized API service layer with error handling and loading states"
+  },
+  "design_references": {
+    "inspiration_sources": [
+      "Modern ERP systems: SAP Fiori, Oracle Cloud, Microsoft Dynamics",
+      "Data-heavy dashboards: Tableau, Power BI, Grafana",
+      "Professional SaaS: Linear, Notion, Airtable (for clean data tables)"
+    ],
+    "key_takeaways": [
+      "Prioritize KPIs and frequently accessed data",
+      "Use consistent visual language across all modules",
+      "Minimize cognitive load with clear hierarchy",
+      "Support customization where possible (column visibility, saved filters)",
+      "Provide contextual help and tooltips for complex features"
+    ]
+  }
+}
