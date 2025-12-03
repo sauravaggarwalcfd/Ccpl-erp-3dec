@@ -36,6 +36,9 @@ import StockTransfer from '@/pages/inventory/StockTransfer';
 import IssueToDepartment from '@/pages/inventory/IssueToDepartment';
 import ReturnFromDepartment from '@/pages/inventory/ReturnFromDepartment';
 import StockAdjustment from '@/pages/inventory/StockAdjustment';
+import OpeningStockPage from '@/inventory/transactions/OpeningStockPage';
+import StockIssuePage from '@/inventory/transactions/StockIssuePage';
+import StockAuditPage from '@/inventory/transactions/StockAuditPage';
 
 // Reports
 import StockLedger from '@/pages/reports/StockLedger';
