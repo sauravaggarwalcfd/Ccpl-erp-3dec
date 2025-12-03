@@ -107,6 +107,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       items: [
         { title: 'Stock Ledger', path: '/reports/stock-ledger' },
         { title: 'Item Balance Report', path: '/reports/item-balance' },
+        { title: 'BIN Stock Report', path: '/reports/bin-stock' },
+        { title: 'Dead Stock Report', path: '/reports/dead-stock' },
         { title: 'Issue & Return Register', path: '/reports/issue-return' },
         { title: 'Pending PO Report', path: '/reports/pending-po' }
       ]
@@ -116,10 +118,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       icon: Settings,
       key: 'settings',
       items: [
-        { title: 'Approval Flow Setup', path: '/settings/approval-flows' },
         { title: 'Number Series', path: '/settings/number-series' },
+        { title: 'Approval Flow Setup', path: '/settings/approval-flows' },
         { title: 'Role & Permissions', path: '/settings/roles' },
-        { title: 'Account Mapping', path: '/settings/account-mapping' }
+        { title: 'GL Account Mapping', path: '/settings/account-mapping' }
       ]
     }
   ];
