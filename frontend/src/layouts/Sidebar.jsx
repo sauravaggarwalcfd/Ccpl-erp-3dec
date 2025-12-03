@@ -85,16 +85,19 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       ]
     },
     {
-      title: 'Inventory',
+      title: 'Inventory Transactions',
       icon: Warehouse,
       key: 'inventory',
       items: [
-        { title: 'GRN', path: '/inventory/grn' },
+        { title: 'Opening Stock', path: '/inventory/opening-stock' },
+        { title: 'Goods Receipt (GRN)', path: '/inventory/grn' },
         { title: 'Stock Inward', path: '/inventory/stock-inward' },
+        { title: 'Stock Issue', path: '/inventory/stock-issue' },
         { title: 'Stock Transfer', path: '/inventory/stock-transfer' },
+        { title: 'Stock Adjustment', path: '/inventory/adjustment' },
+        { title: 'Stock Audit', path: '/inventory/audit' },
         { title: 'Issue to Department', path: '/inventory/issue' },
-        { title: 'Return from Department', path: '/inventory/return' },
-        { title: 'Stock Adjustment', path: '/inventory/adjustment' }
+        { title: 'Return from Department', path: '/inventory/return' }
       ]
     },
     {
